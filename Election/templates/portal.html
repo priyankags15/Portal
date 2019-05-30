@@ -1,0 +1,249 @@
+
+<!DOCTYPE HTML>
+<html>
+<link rel="shortcut icon" href="/static/images/favicon.ico" />
+<title>Election-Portal::</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/static/css/vote.css" rel='stylesheet' type='text/css' />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<meta name="keywords" content="Flat Profile Menu Responsive Templates, Iphone Compatible Templates, Smartphone Compatible Templates, Ipad Compatible Templates, Flat Responsive Templates"/>
+<link href="/static/css/drop.css" rel="stylesheet" type="css/css" media="all" />
+<script type="js/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script src="/static/js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="/static/js/script.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Exo+2:400,700,100' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/static/js/dist/sweetalert.css">
+
+<style>
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {padding-right:18px}
+}
+
+label {position:relative}
+label:after {
+    content:'<>';
+    font:11px "Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:8px; top:2px;
+    padding:0 0 2px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+label:before {
+    content:'';
+    right:6px; top:0px;
+    width:20px; height:20px;
+    background:#f8f8f8;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}
+</style>
+</head>
+	<body>
+		<script src="/static/js/jquery_vote.magnific-popup.js" type="text/javascript"></script>
+		<script src="/static/js/Election.js" type="text/javascript"></script>
+		<script src="/static/js/dist/sweetalert.min.js"></script>
+		<script src="/static/js/dist/sweetalert-dev.js"></script>
+		<script type="text/javascript" src="/static/js/modernizr.custom.53451.js"></script>
+
+		 <script>
+								$(document).ready(function() {
+								$('.popup-with-zoom-anim').magnificPopup({
+									type: 'inline',
+									fixedContentPos: false,
+									fixedBgPos: true,
+									overflowY: 'auto',
+									closeBtnInside: true,
+									preloader: false,
+									midClick: true,
+									removalDelay: 300,
+									mainClass: 'my-mfp-zoom-in'
+								});
+
+								});
+			</script>
+		<li class="menu info" >
+		<ul>
+			<a href="logout"><li class="button">Logout<span class="icon signout"> </span> </li></a>
+		</ul>
+		</li>
+<h1>Portal Menu</h1>
+<ul class="content">
+		<li class="menu">
+				<ul>
+			<li class="button"><a href="#">Profile<span class="icon"> </span></a></li>
+
+					<li class="dropdown">
+							<ul class="icon-navigation">
+									<li><a href="#">Name: {{name}}</a></li>
+									<li><a href="#">Address: {{addr}}</a></li>
+									<li><a href="#">Email: {{email}}</a></li>
+									<li><a href="#">Contact: {{contact}}</a></li>
+							</ul>
+
+		</li>
+				</ul>
+		</li>
+
+		{% if desig == "voter" %}
+			{% if delete == "yes" or polling == "yes" %}
+				<li class="menu">
+	          <ul>
+			    <li class="button"><a href="#">Candidates<span class="icon stat"> </span></a></li>
+	            <li class="dropdown">
+	                <ul class="icon-navigation">
+	                    <li><a href="profiles?desig=president_candidates">For President</a></li>
+	                    <li><a href="profiles?desig=vp_candidates">For Vice President</a></li>
+	                    <li><a href="profiles?desig=cultural_candidates">For Cultural GenSec</a></li>
+											<li><a href="profiles?desig=sports_candidates">For Sports GenSec</a></li>
+	                </ul>
+				</li>
+	          </ul>
+	      </li>
+			{% endif %}
+			{% if able_to_vote == "yes" and polling == "yes" %}
+				<li class="menu">
+				<ul>
+					<li class="button"><a href="#"><img src="/static/images/2.png" height="20" width="20">Cast Vote</a></li>
+					<li class="dropdown">
+							<ul class="icon-navigation">
+								<li><a href="castvote">Cast</a></li>
+							</ul>
+					</li>
+				</ul>
+
+				</li>
+			{% endif %}
+			{% if result == "yes" %}
+				<li class="menu">
+				<ul>
+					<li class="button"><a href="#"><img src="/static/images/4.png" height="20" width="20">Result</a></li>
+					<li class="dropdown">
+							<ul class="icon-navigation">
+								<li><a href="results">Click me!</a></li>
+							</ul>
+					</li>
+				</ul>
+
+				</li>
+			{% endif %}
+			{% elif desig == "admin" %}
+        {% if add == "yes" %}
+					<li class="menu">
+							<ul>
+						<li class="button"><a href="#">Add Candidate<span class="icon"> </span></a></li>
+
+								<li class="dropdown">
+										<ul class="icon-navigation">
+											<li><a class="popup-with-zoom-anim" href="#small-dialog">Register</a></li>
+										</ul>
+
+					</li>
+							</ul>
+					</li>
+          {% endif %}
+
+				{% if delete == "yes" %}
+					<li class="menu">
+		          <ul>
+				    <li class="button"><a href="#">Delete Candidate<span class="icon stat"> </span></a></li>
+		            <li class="dropdown">
+		                <ul class="icon-navigation">
+		                    <li><a href="delete">Discard</a></li>
+		                </ul>
+					</li>
+		          </ul>
+		      </li>
+				{% endif %}
+			{% endif %}
+
+      <li class="menu">
+          <ul>
+		    <li class="button"><a href="#">Settings<span class="icon msg"> </span> </a></li>
+            <li class="dropdown">
+                <ul class="icon-navigation">
+                	<li><a href="#">Password<span><img src="/static/images/key.png" /></span></a></li>
+                </ul>
+			</li>
+          </ul>
+      </li>
+
+
+  </ul>
+	<div class="clear"> </div>
+	<div id="small-dialog" class="mfp-hide">
+	 <div class="pop_up">
+		 <div class="payment-online-form-left">
+			 <form>
+				 <h4><span class="shipping"> </span>Register</h4>
+				 <ul>
+					 <li><input id="roll-no" class="text-box-dark" type="text" value="Roll no." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Frist Name';}"></li>
+				 </ul>
+				 <div class="clear"></div>
+				 <ul>
+					 <li><textarea id = "agenda" class="text-box-dark" placeholder="Your Agenda" onfocus="this.value = '';" style="height:100px;width:350px; float:left"></textarea></li>
+				 </ul>
+				 <div class="clear"></div>
+				 <ul>
+					 <div class="clear"></div>
+				 </br>
+		<label style="float:left">
+    <select id="desig">
+        <option value="" selected> Designation </option>
+				<option value="president">President</option>
+				<option value="vp">Vice president</option>
+				<option value="cultural">Cultural</option>
+				<option value="sports">Sports</option>
+    </select>
+		</label>
+
+
+					 <div class="clear"> </div>
+				 </ul>
+
+				 <ul class="payment-sendbtns">
+					 <li><input type="reset" value="Reset"></li>
+					 <li><input id="register" type="button" style="background-color: #4CAF50; border: none;color: white;padding: 13px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px; cursor: pointer;" value="Register"></li>
+				 </ul>
+				 <div class="clear"> </div>
+			 </form>
+		 </div>
+		 </div>
+ </div>
+		<div class="clear"> </div>
+<!--/content-->
+<!--copyrights-->
+<div class="copy-right">
+	<p>&copy; TOM & ROSHA & RONY</p>
+</div>
+<!--/copyrights-->
+	</body>
+</html>

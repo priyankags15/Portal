@@ -1,0 +1,149 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<!-- Custom Theme files -->
+<link rel="shortcut icon" href="/static/images/favicon.ico" />
+<title>Election-Portal::</title>
+<link href="/static/css/vote.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="/static/js/dist/sweetalert.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<meta name="keywords" content="Newsletter Signup Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" />
+<!-- Custom Theme files -->
+</script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--webfonts-->
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+<!--//webfonts-->
+<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="/static/js/dist/sweetalert.min.js"></script>
+<script src="/static/js/dist/sweetalert-dev.js"></script>
+<style>
+         .count .ui-selecting{
+            background: #000000 ; }
+         #cultural .ui-selected{
+            background: #d27ff1; color: #000000; }
+         #vp .ui-selected{
+             background: #41cac0; color: #000000; }
+         #president .ui-selected{
+             background: #8386e7; color: #000000; }
+         #sports .ui-selected{
+             background: #d27ff1; color: #000000; }
+      </style>
+
+      <script>
+         $(function() {
+           $(".count").bind("mousedown", function(e) {
+              e.metaKey = true;
+              }).selectable();
+
+
+         });
+      </script>
+</head>
+<body>
+<!--start-pricing-tablel-->
+
+<script src="/static/js/jquery_vote.magnific-popup.js" type="text/javascript"></script>
+<script src="/static/js/Election.js" type="text/javascript"></script>
+<script type="text/javascript" src="/static/js/modernizr.custom.53451.js"></script>
+
+ <!-- <script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+
+						});
+				</script> -->
+  <div>
+  <a href="logout"><button class="btn-sample" style="text:#111111; background:#C2AAE0 border:#130269; position:relative;left:300px;top:50px; font-style:italic font-weight:bold">Logout<span><img src="/static/images/key.png"></span></button></a>
+  </div>
+  <div>
+  <a href="portal"><button class="btn-sample" style="text:#111111; background:#C2AAE0 border:#130269; position:relative;left:900px;top:10px;; font-style:italic font-weight:bold">Go to portal</button></a>
+  </div>
+  <div class="wrap">
+			<h1>Select candidates to discard candidature</h1>
+			<div class="pricing-grids">
+				<div class="pricing-grid" style="position:relative;left:190px">
+					<div class="price-value three">
+						<h5>Sports Gensec Poll</h5>
+					</div>
+					<div class="price-bg">
+					<ul class="count" id="sports">
+          {%for row in data.sports%}
+            <li class = "ui-widget-content" id={{row.user_name}}><img src="/static/images/woman-1254453_640.jpg" style="border-radius:50%; height:60px; width:60px;">{{row.name}}</li>
+					{%endfor%}
+
+					</ul>
+					<p class="bottom">your business requiers more than just a server or VPS you need a partner</p>
+					</div>
+				</div>
+				<div class="pricing-grid" style="position:relative;left:170px">
+					<div class="price-value">
+						<h5>President Poll</h5>
+					</div>
+							<div class="price-bg">
+							<ul class="count" id="president">
+                {%for row in data.president%}
+                  <li class = "ui-widget-content" id={{row.user_name}}><img src="/static/images/woman-1254453_640.jpg" style="border-radius:50%; height:60px; width:60px;">{{row.name}}</li>
+      					{%endfor%}
+
+							</ul>
+							<p class="bottom">your business requiers more than just a server or VPS you need a partner</p>
+							</div>
+						</div>
+						<div class="pricing-grid" style="position:relative;left:140px">
+							<div class="price-value two">
+								<h5>Vice President Poll</h5>
+							</div>
+							<div class="price-bg">
+							<ul class="count" id="vp">
+                {%for row in data.vp%}
+                  <li class = "ui-widget-content" id={{row.user_name}}><img src="/static/images/woman-1254453_640.jpg" style="border-radius:50%; height:60px; width:60px;">{{row.name}}</li>
+      					{%endfor%}
+
+							</ul>
+							<p class="bottom">your business requiers more than just a server or VPS you need a partner</p>
+							</div>
+						</div>
+						<div class="pricing-grid" style="position:relative;left:-700px;top:-570px">
+							<div class="price-value three">
+								<h5>Cultural Gensec Poll</h5>
+							</div>
+							<div class="price-bg">
+							<ul class="count" id="cultural">
+                {%for row in data.cultural%}
+                  <li class = "ui-widget-content" id={{row.user_name}}><img src="/static/images/woman-1254453_640.jpg" style="border-radius:50%; height:60px; width:60px;">{{row.name}}</li>
+      					{%endfor%}
+
+							</ul>
+							<p class="bottom">your business requiers more than just a server or VPS you need a partner</p>
+							</div>
+						</div>
+				<div class="clear"> </div>
+
+        <div>
+        <button class="btn-sample" id ="confirm_delete" style="text:#111111; background:#C2AAE0 border:#130269; position:relative;left:360px;top:-500px;padding: 20px 60px;font-style:italic font-weight:bold">Confirm</button>
+        </div>
+
+			</div>
+
+	<!--//End-pricingplans-->
+		<!-- /start-copyright-->
+		<div class="copyrights">
+			<p>&copy; TOM & ROSHA & RONY</p>
+		</div>
+		<!--//End-copyright-->
+</body>
+</html>
